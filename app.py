@@ -30,7 +30,12 @@ mail = Mail(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DB_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
+try:
+    with app.app_context():
+        db.engine.execute("SELECT 1")
+    print("Database connected successfully!")
+except Exception as e:
+    print("Database connection failed:", e)
  
 google_bp = make_google_blueprint(
     client_id=os.getenv("GOOGLE_CLIENT_ID"),
