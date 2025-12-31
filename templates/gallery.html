@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALLERY</title>
+    <link rel="stylesheet" href="../static/gallery.css">
+     <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+     <header>
+    <div class="header-nav">
+    <div class="header-nav-title-text">
+   
+  <h3><a href="{{url_for('home')}}">ORTIZ PHOTOGRAPHY</a></h3>    </div>
+    <div class="header-nav-wrapper"> 
+        <h3> <a href="{{url_for('gallery_page')}}" class="animated-link"> GALLERY</a></h3>
+        <h3> <a href="{{url_for('about_page')}}" class="animated-link"> ABOUT</a></h3>
+    </div>
+    
+    <div class="header-action-btn">
+        <button class="book-now" onclick="window.location.href='../templates/registration.html'">BOOK ME</button>
+    </div>
+    <!-- Mobile menu icon -->
+<!-- Mobile Menu Button -->
+<div class="mobile-menu-btn">
+    ☰
+</div>
+</div>
+ </header>
+ <div class="mobile-menu-panel">
+    <div class="close-btn">✕</div>
+     <a href="{{url_for('gallery_page')}}">GALLERY</a>
+    <a href="{{url_for('about_page')}}">ABOUT</a>
+  <a href="{{url_for('signup_page')}}">BOOK ME</a>
+</div>
+<section class="gallery-pge-main-text-cont">
+    <h1>GALLERY</h1>
+</section>
+<section class="gallery-pge-imges">
+    <div class="gallery-img-cont1">
+
+        <div class="gallery-img1">
+            <img src="../static/images/image-asset5.webp" alt="">
+            <p class="name">Emmett</p>
+            <span>In studio</span>
+        </div>
+
+        <div class="gallery-img2">
+            <img src="../static/images/image-asset.webp" alt="">
+            <p class="name">Monet</p>
+            <span>In studio</span>
+        </div>
+
+    </div>
+
+    <!-- BIG IMAGE -->
+    <div class="gallery-img-cont2">
+        <img src="../static/images/image-asset (1).jpg" alt="">
+        <p class="name">Jamie</p>
+        <span>In studio</span>
+    </div>
+    <br>
+    <br><br>
+
+
+ <!-- ROW 3 -->
+<div class="gallery-img-cont3">
+
+    <div class="gall-img1">
+        <img src="../static/images/image-asset (2).webp" alt="">
+        <p class="name">Rosa</p>
+        <span>In studio</span>
+    </div>
+
+    <div class="gall-img2">
+        <img src="../static/images/image-asset (3).webp" alt="">
+        <p class="name">Alya</p>
+        <span>In studio</span>
+    </div>
+
+</div>
+
+<!-- ROW 4 -->
+<div class="gallery-img-cont4">
+
+    <div class="gll-last-pge-img1">
+        <img src="../static/images/image-asset (4).webp" alt="">
+        <p class="name">Jackie</p>
+        <span>In studio</span>
+    </div>
+
+    <div class="gll-last-pge-img2">
+        <img src="../static/images/Stocksy_comp_2741085+(2)-min.webp" alt="">
+        <p class="name">Jaya</p>
+        <span>In studio</span>
+    </div>
+
+</div>
+<br><br>
+</section>
+<footer class="footer">
+    <div class="footer-top-line"></div>
+
+    <div class="footer-content">
+
+        <div class="footer-left">
+            <h4><span class="dot">•</span> Stay in the loop</h4>
+
+            <p>
+                Sign up to receive email updates, availability, special
+                promotions and more. I respect your privacy and will never
+                share your information with any third-party vendors.
+            </p>
+
+            <div class="footer-form">
+                <form action="">
+                <input type="email" placeholder="Email Address">
+             <button class="get-in-touch" type="submit" style="margin-top: 20px">GET IN TOUCH</button>
+</form>
+            </div>
+        </div>
+
+        <div class="footer-social">
+           <a href="https://instagram.com/yourprofile" class="social-icon" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+</a>
+
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 NARAYAN THAKUR. ALL RIGHTS RESERVED.</p>
+
+    </div>
+
+    <div class="footer-bottom-line"></div>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuBtn = document.querySelector(".mobile-menu-btn");
+    const menuPanel = document.querySelector(".mobile-menu-panel");
+    const closeBtn = document.querySelector(".close-btn");
+
+    menuBtn.addEventListener("click", () => {
+        menuPanel.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        menuPanel.classList.remove("active");
+    });
+
+    document.querySelectorAll(".mobile-menu-panel a").forEach(link => {
+        link.addEventListener("click", () => {
+            menuPanel.classList.remove("active");
+        });
+    });
+
+});
+
+
+</script>
+</body>
+</html>

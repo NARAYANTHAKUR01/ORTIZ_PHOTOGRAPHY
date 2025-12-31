@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Photography Session</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background blur */
+        .blur-wrapper {
+            filter: blur(6px);
+            pointer-events: none;
+        }
+
+        /* Modal overlay */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Modal box */
+        .modal-content {
+            background: #fff;
+            width: 420px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            animation: popup 0.3s ease;
+        }
+
+        @keyframes popup {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🔵 BACKGROUND WEBSITE (EMBED OR INCLUDE YOUR PAGE HERE) -->
+<div class="blur-wrapper">
+    <!-- Example placeholder -->
+    <iframe src="/" width="100%" height="1000px" style="border:none;"></iframe>
+</div>
+
+<!-- 🔵 AUTO OPEN MODAL -->
+<!-- 🔵 AUTO OPEN MODAL -->
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+
+        <h2>Book a Photography Session 📸</h2>
+        <p class="subtitle">Tell us your requirements</p>
+
+        <!-- Flask-WTF form -->
+        <form method="POST" action="{{ url_for('book_session') }}">
+            {{ form.hidden_tag() }}  <!-- CSRF token -->
+
+            <div class="form-group">
+                {{ form.full_name.label }}
+                {{ form.full_name(class="form-control", placeholder="Full Name") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class="form-control", placeholder="Email") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.phone_number.label }}
+                {{ form.phone_number(class="form-control", placeholder="Phone Number") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.session_type.label }}
+                {{ form.session_type(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.session_date.label }}
+                {{ form.session_date(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.location.label }}
+                {{ form.location(class="form-control", placeholder="Location / Venue") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.notes.label }}
+                {{ form.notes(class="form-control", placeholder="Additional Notes") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.submit(class="submit-btn") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+ 
+
+
+<script>
+    // Auto open modal on page load
+    window.onload = function () {
+        document.getElementById("bookingModal").style.display = "flex";
+    };
+
+    // Close modal
+    document.getElementById("closeModal").onclick = function () {
+        document.getElementById("bookingModal").style.display = "none";
+    };
+</script>
+
+</body>
+</html>
