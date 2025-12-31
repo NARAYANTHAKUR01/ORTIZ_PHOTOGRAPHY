@@ -318,5 +318,10 @@ def book_session():
     return render_template("booking_popup.html", form=form)
 
 if __name__ == "__main__":
+    # Create all tables if they don't exist
+    with app.app_context():
+        db.create_all()
+        print("Database tables created successfully!")
+    
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
